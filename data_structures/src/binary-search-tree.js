@@ -7,7 +7,12 @@ class BinarySearchTree {
 
   depthFirstForEach(cb) {
     /* Your code here */
-    
+    const search = currentNode => {
+      cb(currentNode.value);
+      if (currentNode.left !== null) search(currentNode.left);
+      if (currentNode.right !== null) search(currentNode.right);
+    };
+    search(this);
   }
 
   breadthFirstForEach(cb) {
