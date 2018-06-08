@@ -12,7 +12,18 @@ class BinarySearchTree {
 
   breadthFirstForEach(cb) {
     /* Your code here */
-
+    let queue = [];
+    queue.push(this);
+    while(queue.length > 0) {
+      let currentNode = queue.shift();
+      cb(currentNode.value);
+      if (currentNode.left !== null) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right !== null) {
+        queue.push(currentNode.right);
+      }
+    }
   }
 
   insert(value) {
